@@ -19,7 +19,7 @@
 
     data() {
       return {
-        isDataReady: false,
+        isDataReady: true,
       };
     },
   };
