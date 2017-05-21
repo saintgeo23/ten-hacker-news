@@ -2,7 +2,7 @@
   <div id="app">
     <PlaceholderComponent v-show="!isDataReady && !isError" />
     <ErrorComponent v-show="isError && !isDataReady" />
-    <MainComponent v-show="isDataReady" :stories="storiesIDs" @readyEvent="setReady" @errorEvent="setError" />
+    <router-view v-show="isDataReady" @readyEvent="setReady"></router-view>
     <FooterComponent />
   </div>
 </template>
@@ -10,7 +10,6 @@
 <script>
   import PlaceholderComponent from './components/PlaceholderComponent/index.vue';
   import ErrorComponent from './components/ErrorComponent/index.vue';
-  import MainComponent from './components/MainComponent/index.vue';
   import FooterComponent from './components/FooterComponent/index.vue';
 
   export default {
@@ -19,7 +18,6 @@
     components: {
       PlaceholderComponent,
       ErrorComponent,
-      MainComponent,
       FooterComponent,
     },
 
@@ -28,18 +26,6 @@
         isDataReady: false,
         isError: false,
       };
-    },
-
-    beforeMount() {
-      this.$store.dispatch('getStoriesIDs')
-        .then(data => console.log(data))
-        .catch(error => console.log(error));
-    },
-
-    computed: {
-      storiesIDs() {
-        return this.$store.getters.getStoriesIDs;
-      },
     },
 
     methods: {

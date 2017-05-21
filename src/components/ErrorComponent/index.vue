@@ -1,9 +1,7 @@
 <template>
   <div class="errorblock">
     <div class="errorblock__container">
-      <v-alert error v-bind:value="true">
-        Something has gone terribly wrong.
-      </v-alert>
+      Something has gone terribly wrong.
     </div>
   </div>
 </template>

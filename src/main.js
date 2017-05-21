@@ -2,14 +2,16 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import Vuex from 'vuex';
-import Vuetify from 'vuetify';
+import Router from 'vue-router';
 import App from './App';
-import storage from './store'
+import storage from './store';
+import routes from './router';
 
 Vue.use(Vuex);
-Vue.use(Vuetify);
+Vue.use(Router);
 
 const store = new Vuex.Store(storage);
+const router = new Router(routes);
 
 Vue.config.productionTip = false;
 
@@ -19,4 +21,5 @@ new Vue({
   template: '<App/>',
   components: { App },
   store,
+  router,
 });
