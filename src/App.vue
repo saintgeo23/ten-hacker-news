@@ -1,64 +1,56 @@
 <template>
   <div id="app">
-    <PlaceholderComponent v-show="!isDataReady && !isError" />
-    <ErrorComponent v-show="isError && !isDataReady" />
-    <router-view v-show="isDataReady" @readyEvent="setReady"></router-view>
+    <HeaderComponent />
+    <router-view></router-view>
     <FooterComponent />
   </div>
 </template>
 
 <script>
-  import PlaceholderComponent from './components/PlaceholderComponent/index.vue';
-  import ErrorComponent from './components/ErrorComponent/index.vue';
+  import HeaderComponent from './components/HeaderComponent/index.vue';
   import FooterComponent from './components/FooterComponent/index.vue';
 
   export default {
     name: 'app',
 
     components: {
-      PlaceholderComponent,
-      ErrorComponent,
+      HeaderComponent,
       FooterComponent,
-    },
-
-    data() {
-      return {
-        isDataReady: false,
-        isError: false,
-      };
-    },
-
-    methods: {
-      setReady() {
-        this.isDataReady = true;
-      },
-
-      setError() {
-        this.isError = true;
-      },
     },
   };
 </script>
 
-<style>
+<style lang="less" rel="stylesheet/less">
+  /* settings */
+  @import (reference) './assets/styles/settings/index.less';
+
+  /* layout */
   html,
-  body,
-  #app {
+  body {
     width: 100%;
     height: 100%;
   }
 
   body {
-    background-color: #e8e8e8;
-    padding: 0 0 60px;
-    box-sizing: border-box;
-    color: #424242;
+    font: normal 14px/20px @Roboto;
+    background-color: @lightGray;
+    color: @darkGray;
   }
 
   #app {
+    width: 100%;
     max-width: 1000px;
     margin: 0 auto;
     height: auto;
     min-height: 100%;
+    padding: 50px 0 60px;
+    box-sizing: border-box;
+  }
+
+  @media screen and (max-width: @mobileWidth) {
+    #app {
+      padding-right: 16px;
+      padding-left: 16px;
+    }
   }
 </style>

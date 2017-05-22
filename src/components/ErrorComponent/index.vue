@@ -9,7 +9,7 @@
 <script>
 </script>
 
-<style lang="less">
+<style lang="less" rel="stylesheet/less">
   .errorblock {
     display: flex;
     width: 100%;

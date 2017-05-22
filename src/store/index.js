@@ -7,7 +7,7 @@ const state = {
 };
 
 const mutations = {
-  saveStories(state, stories) {    
+  saveStories(state, stories) {
     state.storiesIDs = [...stories];
 
     stories.forEach((id) => {
@@ -26,7 +26,7 @@ const mutations = {
     state.completeStories[data.id].ready = true;
 
     const ready = Object.keys(state.completeStories).every(item => state.completeStories[item].ready);
-    
+
     if (ready) {
       state.ready = true;
     }
@@ -36,7 +36,7 @@ const mutations = {
 const actions = {
   getStoriesIDs({ commit }) {
     const topStoriesUrl = 'https://hacker-news.firebaseio.com/v0/topstories.json';
-    
+
     return new Promise((resolve, reject) => {
       axios.get(topStoriesUrl)
         .then((result) => {
@@ -53,7 +53,7 @@ const actions = {
         .catch((error) => {
           reject(error);
         });
-    }); 
+    });
   },
 
   getStory({ commit }, id) {
@@ -61,7 +61,7 @@ const actions = {
 
     return new Promise((resolve, reject) => {
       axios.get(storyUrl)
-        .then((result) => {          
+        .then((result) => {
           commit('saveStory', result.data);
           resolve(result.data);
         })

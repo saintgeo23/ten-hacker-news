@@ -98,7 +98,7 @@
 
         return this.$store.dispatch('getAuthor', payload);
       })
-      .then((data) => {
+      .then(() => {
         const obj = this.$store.getters.getCompleteStories[this.id];
 
         this.title = obj.story.title;
@@ -125,7 +125,7 @@
   };
 </script>
 
-<style>
+<style lang="less" rel="stylesheet/less">
   .story {
     box-shadow: 0 1px 5px rgba(0,0,0,.2),
                 0 2px 2px rgba(0,0,0,.14),

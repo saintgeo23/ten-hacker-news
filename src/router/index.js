@@ -1,6 +1,6 @@
-import MainPage from '@/pages/MainPage';
-import AboutPage from '@/pages/AboutPage';
-import Error404Page from '@/pages/Error404Page';
+import MainPage from '../pages/MainPage.vue';
+import AboutPage from '../pages/AboutPage.vue';
+import Error404Page from '../pages/Error404Page.vue';
 
 const router = {
   routes: [

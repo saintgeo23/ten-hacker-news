@@ -35,8 +35,7 @@
   };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="less">
+<style lang="less" rel="stylesheet/less">
   .wrapper {
     max-width: 640px;
     margin: 0 auto;

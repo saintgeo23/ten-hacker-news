@@ -9,7 +9,7 @@
 <script>
 </script>
 
-<style>
+<style lang="less" rel="stylesheet/less">
   .placeholder {
     display: flex;
     width: 100%;
