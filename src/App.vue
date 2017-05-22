@@ -43,14 +43,7 @@
     margin: 0 auto;
     height: auto;
     min-height: 100%;
-    padding: 50px 0 60px;
+    padding: 50px 16px 60px;
     box-sizing: border-box;
-  }
-
-  @media screen and (max-width: @mobileWidth) {
-    #app {
-      padding-right: 16px;
-      padding-left: 16px;
-    }
   }
 </style>

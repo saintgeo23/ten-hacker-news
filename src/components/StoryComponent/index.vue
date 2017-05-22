@@ -78,13 +78,13 @@
 
     data() {
       return {
-        title: 'Example title',
-        url: 'Exampleurl',
-        timestamp: 'Example timestamp',
-        score: 'Example score',
-        authorID: 'Example id',
-        authorKarma: 'Example carma',
-        text: 'Example text',
+        title: '',
+        url: '',
+        timestamp: '',
+        score: '',
+        authorID: '',
+        authorKarma: '',
+        text: '',
       };
     },
 
@@ -126,9 +126,54 @@
 </script>
 
 <style lang="less" rel="stylesheet/less">
+  @import (reference) '../../assets/styles/settings/index.less';
+
   .story {
+    background-color: @white;
     box-shadow: 0 1px 5px rgba(0,0,0,.2),
                 0 2px 2px rgba(0,0,0,.14),
                 0 3px 1px -2px rgba(0,0,0,.12);
+    
+    &__title {
+      color: @white;
+      background-color: @blue;
+      font-size: 18px;
+      line-height: 24px;
+      padding: 16px;
+      white-space: wrap;
+    }
+
+    &__container {
+      padding: 16px;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    &__item + &__item {
+      margin-top: 16px;
+    }
+
+    &__label {
+      display: block;
+      font-weight: 900;
+    }
+
+    &__link,
+    &__link:visited {
+      display: block;
+      color: @orange;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    &__text {
+      display: block;
+    }
+
+    &__label + &__link,
+    &__label + &__text {
+      margin-top: 4px;
+    }
   }
 </style>

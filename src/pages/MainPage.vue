@@ -38,9 +38,11 @@
     },
 
     beforeMount() {
-      this.$store.dispatch('getStoriesIDs')
-        .then(data => console.log(data))
-        .catch(error => console.log(error));
+      if (this.storiesIDs.length === 0) {
+        this.$store.dispatch('getStoriesIDs')
+          .then(data => console.log(data))
+          .catch(error => console.log(error));
+      }
     },
 
     computed: {
@@ -51,4 +53,9 @@
   };
 </script>
 
-<style></style>
+<style>
+  .page {
+    width: 100%;
+    height: 100%;
+  }
+</style>

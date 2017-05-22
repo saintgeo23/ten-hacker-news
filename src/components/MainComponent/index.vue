@@ -37,9 +37,8 @@
 
 <style lang="less" rel="stylesheet/less">
   .wrapper {
-    max-width: 640px;
+    max-width: 580px;
     margin: 0 auto;
-    padding: 36px 0;
 
     &__item + &__item {
       margin-top: 36px;
