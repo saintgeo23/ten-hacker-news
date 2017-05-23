@@ -86,11 +86,11 @@
     &__container {
       padding: 16px 24px;
       font-size: 16px;
-      line-height: 22px;
+      line-height: 24px;
     }
 
     &__item + &__item {
-      margin-top: 16px;
+      margin-top: 18px;
     }
 
     &__label {
@@ -115,7 +115,7 @@
     &__label + &__text,
     &__text + &__link,
     &__text + &__text {
-      margin-top: 4px;
+      margin-top: 6px;
     }
   }
 </style>
