@@ -28,6 +28,16 @@ const mutations = {
     const ready = Object.keys(state.completeStories).every(item => state.completeStories[item].ready);
 
     if (ready) {
+      const array = [...state.storiesIDs];
+
+      array.sort((a, b) => {
+        const aScore = state.completeStories[`${a}`].story.score;
+        const bScore = state.completeStories[`${b}`].story.score;
+
+        return aScore - bScore;
+      });
+
+      state.storiesIDs = [...array];
       state.ready = true;
     }
   },

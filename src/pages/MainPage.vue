@@ -40,7 +40,7 @@
     beforeMount() {
       if (this.storiesIDs.length === 0) {
         this.$store.dispatch('getStoriesIDs')
-          .then(data => console.log(data))
+          .then(() => console.log('Success!'))
           .catch(error => console.log(error));
       }
     },

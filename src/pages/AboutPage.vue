@@ -16,7 +16,7 @@
                 It uses open Hackernews API to get top stories data, single story data and author data.
               </span>
               <span class="about__text">
-                The ten stories that are shown in the application are randomly selected from the top 500 stories.
+                The ten stories that are shown in the application are randomly selected from the top 500 stories and sorted by story score in ascending order.
               </span>
               <span class="about__text">
                 The application has a placeholder spinner and shows data only when it is completely recieved from API.

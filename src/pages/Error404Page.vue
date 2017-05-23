@@ -2,7 +2,10 @@
   <div class="warnblock">
     <div class="warnblock__container">
       <span class="warnblock__exclamation">!</span>
-      <span class="warnblock__message">404. Here you find nothing</span>      
+      <span class="warnblock__text">
+        <span class="warnblock__message">404. Here you find nothing</span>
+        <a class="warnblock__link" href="/">Try to visit main page</a>
+      </span>
     </div>
   </div>
 </template>
@@ -54,8 +57,23 @@
       font-weight: 900;
     }
 
-    &__message {
+    &__text {
+      display: block;
+      overflow: hidden;
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    &__message,
+    &__link {
+      display: block;
       font-size: 16px;
+      line-height: 30px;
+    }
+
+    &__link,
+    &__link:visited {
+      color: @white;
     }
   }
 </style>

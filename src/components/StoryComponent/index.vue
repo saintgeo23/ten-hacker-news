@@ -7,7 +7,7 @@
     <div class="story__container">
       <div class="story__item" v-if="url">
         <span class="story__label">
-          URL
+          Story URL
         </span>
 
         <a class="story__link" :href="url">
@@ -17,7 +17,7 @@
 
       <div class="story__item" v-else>
         <span class="story__label">
-          Text
+          Story text
         </span>
 
         <span class="story__text" v-html="text"></span>
@@ -25,7 +25,7 @@
 
       <div class="story__item">
         <span class="story__label">
-          Timestamp
+          Story timestamp
         </span>
 
         <span class="story__text">
@@ -35,7 +35,7 @@
 
       <div class="story__item">
         <span class="story__label">
-          Score
+          Story score
         </span>
 
         <span class="story__text">
@@ -141,6 +141,12 @@
       } else {
         this.getStory();
       }
+    },
+
+    watch: {
+      id() {
+        this.setData();
+      },
     },
   };
 </script>
