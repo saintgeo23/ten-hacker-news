@@ -45,22 +45,5 @@ if (isDevelopment) {
     ],
   });
 } else {
-  module.exports = webpackMerge(baseClientConfig, {
-    plugins: [
-      new webpack.optimize.UglifyJsPlugin({
-        sourceMap: true,
-        beautify: false,
-        comments: false,
-        compress: {
-          sequences: true,
-          booleans: true,
-          loops: true,
-          unused: true,
-          warnings: false,
-          drop_console: true,
-          unsafe: true,
-        },
-      }),
-    ],
-  });
+  module.exports = webpackMerge(baseClientConfig, {});
 }

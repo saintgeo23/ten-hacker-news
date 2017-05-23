@@ -11,7 +11,7 @@
         </span>
 
         <a class="story__link" :href="url">
-          {{ url }}
+          {{ prettyUrl }}
         </a>
       </div>
 
@@ -80,6 +80,7 @@
       return {
         title: '',
         url: '',
+        prettyUrl: '',
         timestamp: '',
         score: '',
         authorID: '',
@@ -88,17 +89,26 @@
       };
     },
 
-    beforeMount() {
-      this.$store.dispatch('getStory', this.id)
-      .then((data) => {
-        const payload = {
-          name: data.by,
-          id: `${data.id}`,
-        };
+    methods: {
+      getStory() {
+        this.$store.dispatch('getStory', this.id)
+          .then((data) => {
+            const payload = {
+              name: data.by,
+              id: `${data.id}`,
+            };
 
-        return this.$store.dispatch('getAuthor', payload);
-      })
-      .then(() => {
+            return this.$store.dispatch('getAuthor', payload);
+          })
+          .then(() => {
+            this.setData();
+          })
+          .catch(() => {
+            this.$emit('error');
+          });
+      },
+
+      setData() {
         const obj = this.$store.getters.getCompleteStories[this.id];
 
         this.title = obj.story.title;
@@ -112,15 +122,25 @@
           this.text = obj.story.text;
         } else {
           this.url = obj.story.url;
+          this.prettyUrl = obj.story.url;
+
+          if (window.URL) {
+            this.prettyUrl = new window.URL(obj.story.url).hostname;
+          }
         }
 
         if (this.$store.getters.getReady) {
           this.$emit('ready');
         }
-      })
-      .catch(() => {
-        this.$emit('error');
-      });
+      },
+    },
+
+    beforeMount() {
+      if (this.$store.getters.getReady) {
+        this.setData();
+      } else {
+        this.getStory();
+      }
     },
   };
 </script>
@@ -139,12 +159,12 @@
       background-color: @blue;
       font-size: 18px;
       line-height: 24px;
-      padding: 16px;
+      padding: 16px 24px;
       white-space: wrap;
     }
 
     &__container {
-      padding: 16px;
+      padding: 16px 24px;
       font-size: 16px;
       line-height: 22px;
     }
@@ -161,7 +181,7 @@
     &__link,
     &__link:visited {
       display: block;
-      color: @orange;
+      color: @blue;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;

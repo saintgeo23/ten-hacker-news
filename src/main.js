@@ -1,8 +1,7 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import Vuex from 'vuex';
 import Router from 'vue-router';
+import VueHead from 'vue-head';
 import { sync } from 'vuex-router-sync';
 import App from './App.vue';
 import storage from './store';
@@ -10,6 +9,7 @@ import routes from './router';
 
 Vue.use(Vuex);
 Vue.use(Router);
+Vue.use(VueHead);
 
 const store = new Vuex.Store(storage);
 const router = new Router(routes);

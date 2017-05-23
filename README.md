@@ -1,21 +1,22 @@
-# ten-hacker-news
+# Ten Hacker News
 
-> A Vue.js project
+> This is a test single page application written on a modern Javascript framework Vue.js.
+> It uses open Hackernews API to get top stories data, separate story data and author data.
+> The ten stories that are shown in the application are random ten stories from 500 top stories.
+> The application has a placeholder spinner and shows the data only when it is completely recieved from API.
+> Application doesn't try to recieve data from API if it is already stored into Vuex storage.
 
 ## Build Setup
 
 ``` bash
 # install dependencies
 npm install
+# or
+yarn
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:3000
 npm run dev
 
-# build for production with minification
+# build for production
 npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

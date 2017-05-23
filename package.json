@@ -7,13 +7,14 @@
   "scripts": {
     "dev": "export NODE_ENV=development PORT=8000; npm run clean && npm run build && npm run perform",
     "clean": "node ./build/clean.js",
-    "build": "node ./build/process.js --client",
+    "build": "export NODE_ENV=production; node ./build/process.js --client",
     "perform": "webpack-dev-server --config ./build/webpack.client.config.js && node ./build/process.js --client --watch"
   },
   "dependencies": {
     "axios": "^0.16.1",
     "moment": "^2.18.1",
     "vue": "^2.2.6",
+    "vue-head": "^2.0.11",
     "vue-router": "^2.5.3",
     "vuex": "^2.3.1",
     "vuex-router-sync": "^4.1.2"
