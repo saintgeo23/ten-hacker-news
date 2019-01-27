@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div class="footer__text">George Volokitin © 2017</div>
+    <div class="footer__text">George Volokitin © {{ (new Date()).getFullYear() }}</div>
   </footer>
 </template>
 
